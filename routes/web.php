@@ -15,15 +15,12 @@ Route::get('/about', function () {
 Route::get('/posts', function () {
     return view('posts', [
         'title' => 'Blog',
-        'posts' =>  Post::findAll()
+        'posts' =>  Post::all()
     ]);
 });
 
-Route::get('/post/{slug}', function ($slug) {
+Route::get('/post/{post:slug}', function (Post $post) {
     
-
-    $post = Post::findOne($slug);
-
     return view('post', ['title' => 'Blog Page', 'post' => $post]);
 });
 
