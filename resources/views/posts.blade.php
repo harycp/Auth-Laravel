@@ -8,7 +8,7 @@
                 <a href="#">{{ $post['author'] }}</a> | <time>May 22, 2021</time>
             </div>
             <p class="mb-4 font-light">{{ Str::limit($post['content'], 70) }}</p>
-            <a href="#" class="font-medium text-purple-900 hover:underline">Read more &raquo;</a>
+            <a href="/post/{{ $post['slug'] }}" class="font-medium text-purple-900 hover:underline">Read more &raquo;</a>
         </article>
     @endforeach
 
