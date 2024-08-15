@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Arr;
+
 class Post {
 
     public static function findAll(){
@@ -27,5 +29,15 @@ class Post {
             consequatur, explicabo assumenda magnam ex neque!',
             ],
         ];
+    }
+
+    public static function findOne($slug):array{
+        $posts = static::findAll();
+
+        $post =  Arr::first($posts, fn($post) => $post['slug'] == $slug);
+
+        if(! $post) abort(404);
+
+        return $post;
     }
 }

@@ -20,11 +20,9 @@ Route::get('/posts', function () {
 });
 
 Route::get('/post/{slug}', function ($slug) {
-    $posts = Post::findAll();
+    
 
-    $post = Arr::first($posts, function ($post) use ($slug) {
-        return $post['slug'] == $slug;
-    });
+    $post = Post::findOne($slug);
 
     return view('post', ['title' => 'Blog Page', 'post' => $post]);
 });
