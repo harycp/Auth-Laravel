@@ -1,7 +1,6 @@
 <x-layout>
     <x-slot:title> {{ $title }}</x-slot>
 
-
     @foreach ($posts as $post)
         <article class="py-6 max-w-screen-md border-b-2 border-gray-400">
             <h2 class="mb-1 text-2xl font-bold tracking-tight text-gray-900">{{ $post['title'] }}</h2>

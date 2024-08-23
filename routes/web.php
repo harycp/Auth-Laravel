@@ -15,9 +15,11 @@ Route::get('/about', function () {
 });
 
 Route::get('/posts', function () {
+
+    $post = Post::with('author', 'category')->latest()->get();
     return view('posts', [
         'title' => 'Blog',
-        'posts' =>  Post::all()
+        'posts' =>  $post
     ]);
 });
 
@@ -27,7 +29,7 @@ Route::get('/post/{post:slug}', function (Post $post) {
 });
 
 Route::get('/authors/{user:username}', function (User $user) {
-    
+
     return view('posts', ['title' => count($user->posts) . ' Blogs by ' . $user->name, 'posts' => $user->posts]);
 });
 
