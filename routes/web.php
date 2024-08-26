@@ -18,10 +18,12 @@ Route::get('/posts', function () {
 
     // $post = Post::with(['author', 'category'])->latest()->get();
 
-    $post = Post::latest()->get();
+    // dump(request('search'));
+
+    $posts = Post::filter(request(['search', 'category', 'author']))->latest()->get(); 
     return view('posts', [
         'title' => 'Blog',
-        'posts' =>  $post
+        'posts' => $posts
     ]);
 });
 

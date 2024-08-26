@@ -3,13 +3,13 @@
 
 
     <div class="py-2 px-0 mx-auto max-w-screen-xl lg:py-4 lg:px-0">
+        <x-search></x-search>
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             @foreach ($posts as $post)
                 <article
                     class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex justify-between items-center mb-5 text-gray-500">
-
-                        <a href="/categories/{{ $post->category->slug }}">
+                        <a href="/posts?category={{ $post->category->slug }}">
                             <span
                                 class="bg-{{ $post->category->color }}-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded hover:opacity-70 dark:bg-primary-200 dark:text-primary-800">
                                 {{ $post->category->name }}
@@ -23,7 +23,7 @@
                     </p>
                     <div class="flex justify-between items-center">
                         <div class="flex items-center space-x-4">
-                            <a href="/authors/{{ $post->author->username }}">
+                            <a href="/posts?author={{ $post->author->username }}">
                                 <span class="font-medium dark:text-white hover:underline">
                                     {{ $post->author->name }}
                                 </span>
