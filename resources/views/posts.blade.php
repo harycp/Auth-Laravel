@@ -5,7 +5,7 @@
     <div class="py-2 px-0 mx-auto max-w-screen-xl lg:py-4 lg:px-0">
         <x-search></x-search>
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            @foreach ($posts as $post)
+            @forelse ($posts as $post)
                 <article
                     class="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                     <div class="flex justify-between items-center mb-5 text-gray-500">
@@ -41,7 +41,13 @@
                         </a>
                     </div>
                 </article>
-            @endforeach
+            @empty
+                <div class="my-4">
+                    <p class="font-semibold text-xl">No posts found</p>
+                    <a href="/posts" class="text-sm text-primary-600 hover:underline hover:opacity-70"> &laquo; Back to
+                        posts </a>
+                </div>
+            @endforelse
         </div>
     </div>
 
