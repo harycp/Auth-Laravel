@@ -1,7 +1,6 @@
 <x-layout>
     <x-slot:title> {{ $title }}</x-slot>
 
-
     <div class="py-2 px-0 mx-auto max-w-screen-xl lg:py-4 lg:px-0">
         <x-search></x-search>
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -48,6 +47,10 @@
                         posts </a>
                 </div>
             @endforelse
+        </div>
+
+        <div class="my-8">
+            {{ $posts->links() }}
         </div>
     </div>
 
