@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\User;
@@ -14,37 +17,19 @@ Route::get('/about', function () {
     return view('about', ['title' => 'About']);
 });
 
-Route::get('/posts', function () {
+Route::get('/posts', [PostController::class, 'filterPost']);
 
-    // $post = Post::with(['author', 'category'])->latest()->get();
+Route::get('/post/{post:slug}', [PostController::class, 'slugPost']);
 
-    // dump(request('search'));
-
-    $posts = Post::filter(request(['search', 'category', 'author']))->latest()->paginate(9)->withQueryString(); 
-    return view('posts', [
-        'title' => 'Blog',
-        'posts' => $posts
-    ]);
-});
-
-Route::get('/post/{post:slug}', function (Post $post) {
-    
-    return view('post', ['title' => 'Blog Page', 'post' => $post]);
-});
-
-Route::get('/authors/{user:username}', function (User $user) {
-
+Route::get('/authors/{user:username}', [PostController::class, 'authorLoad']);
     // $posts = $user->posts->load(['author', 'category']);
 
-    return view('posts', ['title' => count($user->posts) . ' Blogs by ' . $user->name, 'posts' => $user->posts]);
-});
-
-Route::get('/categories/{category:slug}', function (Category $category) {
-    // $posts = $category->posts->load(['author', 'category']);
-    
-    return view('posts', ['title' => $category->name, 'posts' => $category->posts]);
-});
+Route::get('/categories/{category:slug}', [PostController::class, 'categoryLoad']);
 
 Route::get('/contact', function () {
     return view('contact', ['title' => 'Contact']);
 });
+
+
+Route::get("/login", [LoginController::class, 'index']);
+Route::get("/register", [RegisterController::class, 'index']);

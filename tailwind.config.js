@@ -49,6 +49,10 @@ export default {
             },
         },
     },
-    plugins: [require("flowbite/plugin"), require("flowbite-typography")],
+    plugins: [
+        require("flowbite/plugin"),
+        require("flowbite-typography"),
+        require("@tailwindcss/forms"),
+    ],
     safelist: ["bg-red-100", "bg-blue-100", "bg-green-100", "bg-purple-100"],
 };
