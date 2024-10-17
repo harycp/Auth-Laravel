@@ -17,7 +17,7 @@ class RegisterController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'username' => 'required|min:5|max:255|unique:users',
-            'email' => 'required|email|regex:/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix|unique:users',
+            'email' => 'required|email:rfc,dns|unique:users',
             'password' => 'required|min:5|max:255',
         ]);
     }
