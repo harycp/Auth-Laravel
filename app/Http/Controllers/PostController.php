@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends Controller
 {
@@ -32,5 +33,4 @@ class PostController extends Controller
     public function categoryLoad(Category $category){
         return view('posts', ['title' => $category->name, 'posts' => $category->posts]);
     }
-
 }
