@@ -27,7 +27,7 @@ class RegisterController extends Controller
 
         if($dataVlidated){
             User::create($dataVlidated);
-            return redirect('/login')->with('success', 'Register success');
+            return redirect('/login')->with('success', 'Register success, please login');
         }else{
             return "Register failed";
         }
