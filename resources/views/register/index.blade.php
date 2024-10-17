@@ -14,7 +14,8 @@
                     <div class="mt-2">
                         <input id="name" name="name" type="name" autocomplete="name"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 
-                            @error('name') ring-red-500 @enderror">
+                            @error('name') ring-red-500 @enderror"
+                            value="{{ old('name') }}">
                         @error('name')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -26,7 +27,8 @@
                     <div class="mt-2">
                         <input id="username" name="username" autocomplete="username"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6
-                            @error('username') ring-red-500 @enderror">
+                            @error('username') ring-red-500 @enderror"
+                            value="{{ old('username') }}">
                         @error('username')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -39,7 +41,8 @@
                     <div class="mt-2">
                         <input id="email" name="email" autocomplete="email"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6
-                            @error('email') ring-red-500 @enderror">
+                            @error('email') ring-red-500 @enderror"
+                            value="{{ old('email') }}">
                         @error('email')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
@@ -53,7 +56,8 @@
                     <div class="mt-2">
                         <input id="password" name="password" type="password" autocomplete="current-password"
                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 
-                            @error('password') ring-red-500 @enderror">
+                            @error('password') ring-red-500 @enderror"
+                            value="{{ old('password') }}">
                         @error('password')
                             <span class="text-sm text-red-500">{{ $message }}</span>
                         @enderror
