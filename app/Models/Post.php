@@ -15,7 +15,8 @@ class Post extends Model {
 
     protected $fillable = ['title', 'slug', 'author', 'content'];
 
-    protected $with = ['author', 'category']; // Default eager loading
+     // Default eager loading
+    protected $with = ['author', 'category'];
 
     public function author(): BelongsTo{
         return $this->belongsTo(User::class);
