@@ -24,7 +24,7 @@ Route::get('/posts', [PostController::class, 'filterPost']);
 Route::get('/post/{post:slug}', [PostController::class, 'slugPost']);
 
 Route::get('/authors/{user:username}', [PostController::class, 'authorLoad']);
-    // $posts = $user->posts->load(['author', 'category']);
+    $posts = $user->posts->load(['author', 'category']);
 
 Route::get('/categories/{category:slug}', [PostController::class, 'categoryLoad']);
 
